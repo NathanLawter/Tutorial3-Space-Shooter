@@ -33,13 +33,17 @@ public class GameController : MonoBehaviour {
     {
         if (restart)
         {
-            if (Input.GetKeyDown(KeyCode.R));
+            if (Input.GetKeyDown("R"));
             {
                 Application.LoadLevel (Application.loadedLevel);
             }
         }
-    }
-    IEnumerator SpawnWaves()
+            if (Input.GetKey("escape"))
+            {
+                Application.Quit();
+            }
+        }
+        IEnumerator SpawnWaves()
     {
         yield return new WaitForSeconds(startWait);
         while (true)

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour { 
-    public GameObject hazard;
+    public GameObject[] hazards;
     public Vector3 spawnValue;
     public int hazardCount;
     public float spawnWait;
@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour {
     {
         if (restart)
         {
-            if (Input.GetKeyDown("R"));
+            if (Input.GetKey("r"));
             {
                 Application.LoadLevel (Application.loadedLevel);
             }
@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour {
         {
             for (int i = 0; i < hazardCount; i++)
             {
+                GameObject hazard = hazards[Random.Range (0, hazards.Length)];
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);
